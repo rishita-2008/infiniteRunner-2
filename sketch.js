@@ -3,11 +3,8 @@ var END = 0;
 var gameState = PLAY;
 
 var ground, invisibleGround, groundImage;
-var groundImg;
 
 var plr, player;
-
-var bg2;
 
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
@@ -29,7 +26,6 @@ function preload(){
   obstacle4 = loadImage("obstacle4.png");
   obstacle5 = loadImage("obstacle5.png");
   obstacle6 = loadImage("obstacle6.png");
-  groundImg=loadImage("bg.png")
   
   restartImg = loadImage("restart.png")
   gameOverImg = loadImage("gameOver.png")
@@ -49,9 +45,6 @@ function setup() {
   var message = "This is a message";
  console.log(message)
   
-  bg2=createSprite(300,75)
-  bg2.addImage(groundImg)
- 
   player = createSprite(50,160,20,50);
   player.addImage("running", plr);
   
@@ -89,7 +82,7 @@ function setup() {
 
 function draw() {
   
-  background("skyBlue");
+  background("white");
   //displaying score
   text("Score: "+ score, camera.position.x+200,50);
   
@@ -101,7 +94,6 @@ function draw() {
     restart.visible = false;
     
     camera.position.x = camera.position.x +7;
-    bg2.x=camera.position.x +10;
    // ground.velocityX = -(4 + 3* score/100)
     //scoring
     score = score + Math.round(getFrameRate()/60);
